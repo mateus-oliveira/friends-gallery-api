@@ -10,9 +10,8 @@ It is the backend for the app Friends Gallery, system when many friends will pos
 * Deploy with SSH
 * AWS/S3
 
-This API are developed with Django REST Framework with access to PostgreSQL database. 
+This API are developed with Django REST Framework with access to PostgreSQL database. You can see the API endpoints importing the file [enpoints.json](./endpoints.json) in the software [Insomnia](https://insomnia.rest/). Also you can see the Entity Relashionship Diagram here:
 
-You can see the API endpoints importing the file [enpoints.json](./endpoints.json) in the software [Insomnia](https://insomnia.rest/). Also you can see the Entity Relashionship Diagram here:
 ![ERD](./software_engeener/erd.png)
 
 To run this API in your host, do you need install the PostgreSQL, you can do it with the follow commands:
