@@ -24,7 +24,7 @@ class PostViewSet(viewsets.ModelViewSet):
     def like(self, request, pk=None):
         try:
             post = self.get_object()
-            if request.user in post.like:
+            if request.user in post.likes.all():
                 post.likes.remove(request.user)
             else:
                 post.likes.add(request.user)
