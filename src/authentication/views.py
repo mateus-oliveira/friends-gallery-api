@@ -12,11 +12,13 @@ from .serializers import (
     RefreshSerializer,
 )
 from .models import User
+from .permissions import UserPermissions
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [UserPermissions]
 
     def list(self, request, *args, **kwargs):
         self.serializer_class = HintUserSerializer

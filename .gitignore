@@ -6,6 +6,7 @@ db.sqlite3
 
 !uploads/.gitkeep
 uploads/
+static/
 
 .env
 .vscode/
