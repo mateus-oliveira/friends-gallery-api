@@ -1,6 +1,6 @@
 # Friends Gallery
 
-It is the backend for the app Friends Gallery, system when many friends will post photographs for your friend who is getting married.
+It is the backend for the app Friends Gallery, system when married friends will post photographs to celebrate the moment.
 
 ## Technologies
 
@@ -78,6 +78,7 @@ AWS_DEFAULT_REGION="< your_bucket_default_region >"
 ## Running the API
 ```bash
 python manage.py migrate
+python manage.py collectstatic
 python manage.py runserver
 ```
 
