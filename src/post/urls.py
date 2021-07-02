@@ -8,5 +8,5 @@ router.register('comments', CommentViewSet, basename='comments')
 router.register('posts', PostViewSet, basename='posts')
 
 urlpatterns = [
-    path("",  include((router.urls, 'posts'), namespace='posts_urls')),
+    path("",  include((router.urls, 'post'), namespace='post_urls')),
 ]

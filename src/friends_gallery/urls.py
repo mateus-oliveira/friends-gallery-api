@@ -10,19 +10,16 @@ from .settings import (
     STATIC_URL,
 )
 
-# admin.autodiscover()
-# admin.site.enable_nav_sidebar = False
-
 
 urlpatterns = [
     path('asset/', include('asset.urls')),
     path('authentication/', include('authentication.urls')),
-    path('posts/', include('posts.urls')),
+    path('post/', include('post.urls')),
 
     path('admin/', admin.site.urls),
     path('drf/', include('rest_framework.urls')),
 ]
 
-if environment == 'LOCAL':
+if environment == 'DEVELOPMENT':
     urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
     urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)

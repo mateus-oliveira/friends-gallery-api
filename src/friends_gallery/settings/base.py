@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
     'asset',
     'authentication',
-    'posts',
+    'post',
 ]
 
 MIDDLEWARE = [

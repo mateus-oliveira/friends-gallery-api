@@ -10,10 +10,10 @@ class PostPermissions(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return request.user.is_authenticated
 
-        if request.stream.path == reverse("posts_urls:posts-like", args=[obj.id]):
+        if request.stream.path == reverse("post_urls:posts-like", args=[obj.id]):
             return request.user.is_authenticated
 
-        if request.stream.path == reverse("posts_urls:posts-to-approve", args=[obj.id]):
+        if request.stream.path == reverse("post_urls:posts-to-approve", args=[obj.id]):
             return request.user.role == 1
 
         return request.user == obj.user

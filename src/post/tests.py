@@ -8,7 +8,7 @@ from .models import Comment, Post
 
 class PostTests(APITestCase):
     def test_create_post(self):
-        url = reverse('posts_urls:posts-list')
+        url = reverse('post_urls:posts-list')
         user = baker.make('authentication.User', role=1)
         asset = baker.make('asset.Asset')
 
@@ -27,7 +27,7 @@ class PostTests(APITestCase):
         self.assertEqual(Post.objects.get().asset, asset)
 
     def test_dont_create_post_offline(self):
-        url = reverse('posts_urls:posts-list')
+        url = reverse('post_urls:posts-list')
         user = baker.make('authentication.User', role=1)
         asset = baker.make('asset.Asset')
 
@@ -42,8 +42,8 @@ class PostTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_like_a_post(self):
-        post = baker.make('posts.Post', status=2)
-        url = reverse("posts_urls:posts-like", args=[post.id])
+        post = baker.make('post.Post', status=2)
+        url = reverse("post_urls:posts-like", args=[post.id])
 
         user = baker.make('authentication.User')
         self.client.force_authenticate(user)
@@ -55,8 +55,8 @@ class PostTests(APITestCase):
 
     def test_unlike_a_post(self):
         user = baker.make('authentication.User')
-        post = baker.make('posts.Post', status=2, likes=[user])
-        url = reverse("posts_urls:posts-like", args=[post.id])
+        post = baker.make('post.Post', status=2, likes=[user])
+        url = reverse("post_urls:posts-like", args=[post.id])
         self.client.force_authenticate(user)
 
         response = self.client.post(url, {}, format='json')
@@ -67,8 +67,8 @@ class PostTests(APITestCase):
 
 class CommentTest(APITestCase):
     def test_comment_a_post(self):
-        post = baker.make('posts.Post', status=2)
-        url = reverse("posts_urls:comments-list")
+        post = baker.make('post.Post', status=2)
+        url = reverse("post_urls:comments-list")
 
         user = baker.make('authentication.User')
         self.client.force_authenticate(user)
@@ -87,8 +87,8 @@ class CommentTest(APITestCase):
         self.assertEqual(Comment.objects.get().user, user)
 
     def test_dont_comment_a_post_offline(self):
-        post = baker.make('posts.Post', status=2)
-        url = reverse("posts_urls:comments-list")
+        post = baker.make('post.Post', status=2)
+        url = reverse("post_urls:comments-list")
 
         user = baker.make('authentication.User')
 
