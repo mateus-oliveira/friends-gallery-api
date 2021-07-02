@@ -24,10 +24,10 @@ cd friends-gallery-api/
 
 ## Database setup
 
-Install the PostgreSQL in your terminal
+Install the PostgreSQL and the Python PIP with the commands in your terminal
 ```bash
 sudo apt update
-sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
 sudo -u postgres psql
 ```
 
