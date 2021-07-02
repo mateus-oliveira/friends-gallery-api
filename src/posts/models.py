@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.deletion import CASCADE, PROTECT
 
 # Create your models here.
 
@@ -12,11 +11,12 @@ class Post(models.Model):
     ]
 
     asset = models.ForeignKey(
-        'asset.Asset', verbose_name='Image', null=False, on_delete=PROTECT,
+        'asset.Asset', verbose_name='Image',
+        null=False, on_delete=models.PROTECT,
     )
     user = models.ForeignKey(
         'authentication.User', verbose_name='User',
-        null=False, on_delete=PROTECT, related_name='post_owner',
+        null=False, on_delete=models.PROTECT, related_name='post_owner',
     )
     likes = models.ManyToManyField(
         'authentication.User', related_name='post_followers',
@@ -35,11 +35,12 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(
-        'posts.Post', verbose_name='Post', null=False, on_delete=CASCADE,
+        'posts.Post', verbose_name='Post',
+        null=False, on_delete=models.CASCADE,
     )
     user = models.ForeignKey(
         'authentication.User', verbose_name='User',
-        null=False, on_delete=CASCADE,
+        null=False, on_delete=models.CASCADE,
     )
     text = models.CharField(
         verbose_name='Comment text', max_length=200, null=False, blank=False,

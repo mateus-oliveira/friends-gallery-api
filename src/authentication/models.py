@@ -21,7 +21,7 @@ class UserManager(BaseUserManager):
             username=username,
             email=email,
             password=password,
-            ** extra_fields,
+            **extra_fields,
         )
         user.save()
         return user
@@ -95,7 +95,5 @@ class User(PermissionsMixin, AbstractBaseUser):
         return self.first_name
 
     def save(self, *args, **kwargs):
-        if not self.password.startswith('pbkdf2_sha256'):
-            self.password = make_password(self.password)
-
+        self.password = make_password(self.password)
         return super(User, self).save(*args, **kwargs)
