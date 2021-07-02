@@ -1,5 +1,6 @@
 import random
 from django.db import models
+from .utils import resize_and_crop_file
 
 
 def upload_directory_path(instance, filename):
@@ -17,3 +18,7 @@ class Asset(models.Model):
 
     def __str__(self):
         return f'Image {self.id}: <{self.file}>'
+    
+    def save(self, *args, **kwargs):
+        self.file = resize_and_crop_file(self.file)
+        super(Asset, self).save(*args, **kwargs)
