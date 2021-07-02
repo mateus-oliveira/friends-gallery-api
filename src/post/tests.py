@@ -17,13 +17,13 @@ class PostTests(APITestCase):
         body = {
             'asset': asset.id,
             'user': user.id,
-            'caption': 'Happy merried',
+            'caption': 'Happy married',
             'likes': [user.id],
         }
 
         response = self.client.post(url, body, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(Post.objects.get().caption, 'Happy merried')
+        self.assertEqual(Post.objects.get().caption, 'Happy married')
         self.assertEqual(Post.objects.get().asset, asset)
 
     def test_dont_create_post_offline(self):
@@ -34,7 +34,7 @@ class PostTests(APITestCase):
         body = {
             'asset': asset.id,
             'user': user.id,
-            'caption': 'Happy merried',
+            'caption': 'Happy married',
             'likes': [user.id],
         }
 
@@ -101,3 +101,20 @@ class CommentTest(APITestCase):
         response = self.client.post(url, body, format='json')
 
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_dont_comment_how_other_user(self):
+        post = baker.make('post.Post', status=2)
+        url = reverse("post_urls:comments-list")
+
+        user = baker.make('authentication.User')
+        self.client.force_authenticate(user)
+
+        body = {
+            'post': post.id,
+            'user': user.id + 1,
+            'text': 'I liked!',
+        }
+
+        response = self.client.post(url, body, format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

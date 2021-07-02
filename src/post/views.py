@@ -14,7 +14,7 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [PostPermissions]
-    filterset_fields = ['user']
+    filterset_fields = ['user', 'status']
 
     def create(self, request, *args, **kwargs):
         self.serializer_class = PostCreateSerializer
@@ -37,19 +37,16 @@ class PostViewSet(viewsets.ModelViewSet):
         except Exception:
             raise ValidationError('Error when trying like a post!')
 
-    @action(methods=['POST'], detail=True, url_path='to-approve')
+    @action(methods=['PATCH'], detail=True, url_path='to-approve')
     def to_approve(self, request, pk=None):
-        try:
-            post = self.get_object()
-            post.status = request.data["status"]
-            post.save()
+        post = self.get_object()
+        post.status = request.data["status"]
+        post.save()
 
-            return Response(
-                data=PostSerializer(instance=post).data,
-                status=status.HTTP_200_OK,
-            )
-        except Exception:
-            raise ValidationError('Error when trying to approve a post!')
+        return Response(
+            data=PostSerializer(instance=post).data,
+            status=status.HTTP_200_OK,
+        )
 
 
 class CommentViewSet(viewsets.ModelViewSet):
