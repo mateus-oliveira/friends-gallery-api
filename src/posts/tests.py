@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from model_bakery import baker
 
-from .models import Post
+from .models import Comment, Post
 
 
 class PostTests(APITestCase):
@@ -63,3 +63,25 @@ class PostTests(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(Post.objects.get().likes.all()), 0)
+
+
+class CommentTest(APITestCase):
+    def test_comment_a_post(self):
+        post = baker.make('posts.Post', status=2)
+        url = reverse("posts_urls:comments-list")
+
+        user = baker.make('authentication.User')
+        self.client.force_authenticate(user)
+
+        body = {
+            'post': post.id,
+            'user': user.id,
+            'text': 'I liked!',
+        }
+
+        response = self.client.post(url, body, format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Comment.objects.get().text, 'I liked!')
+        self.assertEqual(Comment.objects.get().post, post)
+        self.assertEqual(Comment.objects.get().user, user)
