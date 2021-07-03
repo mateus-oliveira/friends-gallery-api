@@ -21,8 +21,12 @@ class PostPermissions(permissions.BasePermission):
 
 class CommentPermissions(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'POST' and request.data['user'] != request.user.id:
-            return False
+        try:
+            if request.method == 'POST' and request.data['user'] != request.user.id:
+                return False
+        except Exception:
+            if request.method == 'POST':
+                return False
 
         return request.user.is_authenticated
 
