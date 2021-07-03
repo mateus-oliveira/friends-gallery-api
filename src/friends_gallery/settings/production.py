@@ -13,8 +13,7 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT'),
     }
 }
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'gallery.api.devsenior.xyz']
 
 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
