@@ -26,4 +26,8 @@ urlpatterns = [
         ChangePasswordViewSet.as_view(),
         name='change-password',
     ),
+    path(
+        'reset-password/',
+        include('django_rest_passwordreset.urls', namespace='reset-password'),
+    ),
 ]

@@ -5,6 +5,7 @@ from django.contrib.auth.models import (
     PermissionsMixin,
     BaseUserManager,
 )
+from .signals import password_reset_token_created
 
 # Register your models here.
 

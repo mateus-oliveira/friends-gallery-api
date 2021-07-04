@@ -15,6 +15,13 @@ DATABASES = {
 }
 ALLOWED_HOSTS = ['*', 'gallery.api.devsenior.xyz']
 
+FRONTEND_URL = os.getenv('FRONTEND_URL')
+
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = bool(os.getenv('EMAIL_USE_TLS'))
 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
