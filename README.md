@@ -1,6 +1,9 @@
 # Friends Gallery
 
-It is the backend for the app Friends Gallery, system when married friends will post photographs to celebrate the moment.
+It is the backend for the app Friends Gallery, system when married friends will post photographs to celebrate this moment. 
+For access the API [cllick here](https://gallery.api.devsenior.xyz/), and Sign In with the follow Django administration credentials:
+* Email: admin@admin.com
+* Password: admin2021
 
 ## Technologies
 
@@ -62,7 +65,21 @@ virtualenv ~/venv/gallery
 source ~/venv/gallery/bin/activate
 pip install -r requirements.txt
 ```
+## Email setup
 
+Do you have to configure an email app password, it is required to send email for user at the reset password endpoint.
+
+After this, write the email credentials in [.env](./src/.env.example) file and the frontend URL, in my case is [here](https://gallery.devsenior.xyz/)
+
+```python
+FRONTEND_URL=https://gallery.devsenior.xyz/
+
+EMAIL_HOST="< your_email_host >"
+EMAIL_PORT="< your_port_email_host >"
+EMAIL_HOST_USER="< your_email_user >"
+EMAIL_HOST_PASSWORD="< your_email_app_password >"
+EMAIL_USE_TLS=True
+```
 ## Amazon S3 setup
 
 To upload files, you need configure your credentials for access the Amazon S3, because the files go there. You can do it following this [tutorial](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) or other if you prefer.

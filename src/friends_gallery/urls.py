@@ -12,10 +12,7 @@ from .settings import (
 
 
 urlpatterns = [
-    path('asset/', include('asset.urls')),
-    path('authentication/', include('authentication.urls')),
-    path('post/', include('post.urls')),
-
+    path('', include('core.urls')),
     path('admin/', admin.site.urls),
     path('drf/', include('rest_framework.urls')),
 ]
