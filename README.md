@@ -75,7 +75,7 @@ pip install -r requirements.txt
 
 Do you have to configure an email app password, it is required to send email for user at the reset password endpoint.
 
-After this, write the email credentials in [.env](./src/.env.example) file and the frontend URL, in my case is [here](https://gallery.devsenior.xyz/)
+After this, write the email credentials in [.env](./src/.env.example) file and the frontend URL, in my case is [here](https://gallery.devsenior.xyz/).
 
 ```python
 FRONTEND_URL=https://gallery.devsenior.xyz/
