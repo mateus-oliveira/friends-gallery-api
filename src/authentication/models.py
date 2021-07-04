@@ -48,6 +48,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     ROLE_CHOICES = (
         (1, 'married'),
         (2, 'friend'),
+        (3, 'admin'),
     )
     asset = models.ForeignKey(
         'asset.Asset', verbose_name='Profile image',
