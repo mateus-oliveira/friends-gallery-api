@@ -19,6 +19,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [UserPermissions]
+    filterset_fields = ['username']
 
     def list(self, request, *args, **kwargs):
         self.serializer_class = HintUserSerializer

@@ -23,7 +23,11 @@ class UserSerializer(serializers.ModelSerializer):
 class HintUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name']
+        fields = ['username', 'first_name', 'last_name', 'asset']
+
+    def to_representation(self, instance):
+        self.fields['asset'] = AssetSerializer(many=False, read_only=True)
+        return super().to_representation(instance)
 
 
 class AuthSerializer(TokenObtainPairSerializer):

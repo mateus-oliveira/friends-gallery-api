@@ -14,7 +14,7 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [PostPermissions]
-    filterset_fields = ['user', 'status']
+    filterset_fields = ['user', 'status', 'user__username']
 
     def create(self, request, *args, **kwargs):
         self.serializer_class = PostCreateSerializer
