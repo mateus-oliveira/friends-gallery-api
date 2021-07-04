@@ -101,7 +101,9 @@
             {% if user.is_superuser %}
                 <div class="routes">
                     <div>
-                        <img src="{% static 'images/logo.png' %}" alt="Friends Gallery">
+                        <img 
+                            src="https://mateus-s3.s3.amazonaws.com/media/logo.png" 
+                            alt="Friends Gallery">
                     </div>
                     <div>
                         <ul>
@@ -124,7 +126,9 @@
                     </div>
                 </div>
             {% else %}
-                <img src="{% static 'images/logo.png' %}" alt="Friends Gallery">
+                <img 
+                    src="https://mateus-s3.s3.amazonaws.com/media/logo.png" 
+                    alt="Friends Gallery">
             {% endif %}
         </div>
         <footer>

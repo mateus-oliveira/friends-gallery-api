@@ -1,7 +1,8 @@
 # Friends Gallery
 
 It is the backend for the app Friends Gallery, system when married friends will post photographs to celebrate this moment. 
-For access the API [cllick here](https://gallery.api.devsenior.xyz/), and Sign In with the follow Django administration credentials:
+
+For access the API [cllick here](https://gallery.api.devsenior.xyz/) and Sign In with the follow Django administration credentials:
 * Email: admin@admin.com
 * Password: admin2021
 
