@@ -1,4 +1,5 @@
 import sys
+import tempfile
 from PIL import Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -39,3 +40,12 @@ def resize_and_crop_file(uploaded_image, multiplier=1):
     )
 
     return uploaded_image
+
+
+def get_temp_asset():
+    image = Image.new(mode='RGB', size=(200, 200), color='blue')
+    tmp_file = tempfile.NamedTemporaryFile(suffix='.png')
+    image.save(tmp_file)
+    tmp_file.seek(0)
+
+    return tmp_file
