@@ -14,7 +14,7 @@ def make_square(im, min_size=266, fill_color=(255, 255, 255, 0)):
 
 
 def resize_and_crop_file(uploaded_image, multiplier=1):
-    dimensions = [500, 200, 50]
+    dimensions = [500, 100, 10]
     dimension = dimensions[multiplier-1]
 
     name = {1: '', 2: '_medium', 3: '_low'}
