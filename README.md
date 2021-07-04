@@ -2,9 +2,14 @@
 
 It is the backend for the app Friends Gallery, system when married friends will post photographs to celebrate this moment. 
 
-For access the API [cllick here](https://gallery.api.devsenior.xyz/) and Sign In with the follow Django administration credentials:
+For access the API [cllick here](https://gallery.api.devsenior.xyz/) and sign in with the follow Django administration credentials:
 * Email: admin@admin.com
 * Password: admin2021
+
+The API routes are splicited in app URLs. You can see the routes in [here](https://gallery.api.devsenior.xyz/) after sign in. The app routes are:
+* [asset/](https://gallery.api.devsenior.xyz/asset/)
+* [authentication/](https://gallery.api.devsenior.xyz/authentication/)
+* [post/](https://gallery.api.devsenior.xyz/post/)
 
 ## Technologies
 
