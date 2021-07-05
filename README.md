@@ -23,7 +23,7 @@ This API are developed with Django REST Framework with access to PostgreSQL data
 
 ![ERD](./software_engeener/erd.png)
 
-To run this API in your host, do you need to clone this repository and install the PostgreSQL. Also, do you need to config your Email app password for send mail with Django. Finally, do just have to config your Bucket at AWS/S3 for upload files. You can do it with the follow commands:
+To run this API in your host, do you need to clone this repository and install the PostgreSQL. Also, do you need to config your Email app password for send mail with Django. Finally, do you just have to config your Bucket at AWS/S3 for upload files. You can do it with the follow commands:
 
 ## Clone the repository
 ```bash
