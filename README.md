@@ -71,6 +71,13 @@ virtualenv ~/venv/gallery
 source ~/venv/gallery/bin/activate
 pip install -r requirements.txt
 ```
+
+In the [.env](./src/.env.example), define the ENVIRONMENT variable with "DEVELOPMENT" (for running the API in your host) or "PRODUCTION" (for running the API how in production). That variable will select the file imported with the specified environment settings at the file [_\_init__.py](./src/friends_gallery/settings/__init__.py). See the example:
+```python
+ENVIRONMENT=DEVELOPMENT
+# or ENVIRONMENT=PRODUCTION
+```
+
 ## Email setup
 
 Do you have to configure an email app password, it is required to send email for user at the reset password endpoint. You can follow this [tutorial](https://docs.djangoproject.com/en/3.2/topics/email/) to see how send mail with Django.
