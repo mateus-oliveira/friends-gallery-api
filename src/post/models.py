@@ -30,7 +30,7 @@ class Post(models.Model):
     )
 
     def __str__(self) -> str:
-        return f'Post {self.id}: "{self.caption}" - {self.user.get_full_name}'
+        return f'Post {self.id}: "{self.caption}" - {self.user}'
 
 
 class Comment(models.Model):
@@ -50,4 +50,4 @@ class Comment(models.Model):
     )
 
     def __str__(self) -> str:
-        return f'Comment {self.id} in Post {self.post.id}: "{self.text}" - {self.user.get_full_name}'
+        return f'Comment {self.id} in Post {self.post.id}: "{self.text}" - {self.user}'
